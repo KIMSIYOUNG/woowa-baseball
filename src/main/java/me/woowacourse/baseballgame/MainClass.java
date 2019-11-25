@@ -2,10 +2,22 @@ package me.woowacourse.baseballgame;
 
 import java.util.*;
 
+/**
+ * @author : 김시영
+ * @version : 1.0
+ * @java-version : 1.8
+ * @updated_at : 2019-11-25
+ */
 public class MainClass {
-    private static final Scanner sc = new Scanner(System.in);
-    private static String userInput;
     private static final int END_GAME = 2;
+    private static final int DEFALUT_INT_ZERO = 0;
+    private static final int DIGIT_NUMBER = 3;
+    private static final int RANGE_OF_NUMBER = 9;
+    private static final int START_POINT_OF_NUMBER = 1;
+    private static final String DEFALUT_STRING_BLANK = "";
+    private static final Scanner sc = new Scanner(System.in);
+
+    private static String userInput;
 
     public static void main(String[] args) {
         while (true) {
@@ -26,11 +38,11 @@ public class MainClass {
     }
 
     private static void validateMethod(String userInput, String randomNumber) {
-        int strike = 0;
-        int ball = 0;
-        int nothing = 0;
-        String[] userInputArray = userInput.split("");
-        String[] randomNumberArray = randomNumber.split("");
+        int strike = DEFALUT_INT_ZERO;
+        int ball = DEFALUT_INT_ZERO;
+        int nothing = DEFALUT_INT_ZERO;
+        String[] userInputArray = userInput.split(DEFALUT_STRING_BLANK);
+        String[] randomNumberArray = randomNumber.split(DEFALUT_STRING_BLANK);
         List<String> randomNumberList = Arrays.asList(randomNumberArray);
 
         for (int i = 0; i < userInputArray.length; i++) {
@@ -48,10 +60,12 @@ public class MainClass {
 
     private static String makeRandomNumber() {
         Set<Integer> setForRandomNumber = new HashSet<>();
-        String randomNumber = "";
+        String randomNumber = DEFALUT_STRING_BLANK;
 
-        while (setForRandomNumber.size() < 3) {
-            setForRandomNumber.add((int) (Math.random() * 9) + 1);
+        while (setForRandomNumber.size() < DIGIT_NUMBER) {
+            setForRandomNumber.add(
+                    (int) (Math.random() * RANGE_OF_NUMBER) + START_POINT_OF_NUMBER
+            );
         }
         for (Integer s : setForRandomNumber)
             randomNumber += String.valueOf(s);

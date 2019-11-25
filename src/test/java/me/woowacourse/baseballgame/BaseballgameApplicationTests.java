@@ -23,4 +23,5 @@ class BaseballgameApplicationTests {
             assertTrue(randomNumber<=9);
         }
     }
+
 }
