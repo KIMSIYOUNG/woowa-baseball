@@ -9,12 +9,15 @@ import java.util.*;
  * @updated_at : 2019-11-25
  */
 public class MainClass {
+    /*
+    하드코딩하지 않고 상수로 만들려 하니 상수가 너무 많은 느낌.
+     */
     private static final int END_GAME = 2;
     private static final int DEFALUT_INT_ZERO = 0;
+    private static final String DEFALUT_STRING_BLANK = "";
     private static final int DIGIT_NUMBER = 3;
     private static final int RANGE_OF_NUMBER = 9;
     private static final int START_POINT_OF_NUMBER = 1;
-    private static final String DEFALUT_STRING_BLANK = "";
     private static final Scanner sc = new Scanner(System.in);
 
     private static String userInput;
@@ -37,14 +40,18 @@ public class MainClass {
         }
     }
 
+    /*
+    클래스로 빼는게 나을려나?
+     */
     private static void validateMethod(String userInput, String randomNumber) {
         int strike = DEFALUT_INT_ZERO;
         int ball = DEFALUT_INT_ZERO;
         int nothing = DEFALUT_INT_ZERO;
         String[] userInputArray = userInput.split(DEFALUT_STRING_BLANK);
-        String[] randomNumberArray = randomNumber.split(DEFALUT_STRING_BLANK);
-        List<String> randomNumberList = Arrays.asList(randomNumberArray);
-
+        List<String> randomNumberList = Arrays.asList(randomNumber.split(DEFALUT_STRING_BLANK));
+        /*
+        변수이름을 축약하지 않고, 알기쉽게 하니까 코드가 너무 길어지는 거 같은데 이게 맞는건가?
+         */
         for (int i = 0; i < userInputArray.length; i++) {
             if (randomNumberList.contains(userInputArray[i])
                     && randomNumberList.indexOf(userInputArray[i]) == i) {
@@ -52,8 +59,9 @@ public class MainClass {
             } else if (randomNumberList.contains(userInputArray[i])
                     && randomNumberList.indexOf(userInputArray[i]) != i) {
                 ball++;
-            } else if (!randomNumberList.contains(userInputArray[i]))
+            } else {
                 nothing++;
+            }
         }
         System.out.println("Strike : " + strike + "  Ball : " + ball + "  nothing : " + nothing);
     }

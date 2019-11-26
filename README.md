@@ -1,5 +1,7 @@
 #  woowa-baseball 
 
+## 결과화면
+<img width="744" alt="baseball_result" src="https://user-images.githubusercontent.com/49060374/69593961-39164900-103e-11ea-822d-ca18b142f6e3.png">
 
 ## 기능요구사항
 
